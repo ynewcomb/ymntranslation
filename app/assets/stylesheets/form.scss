@@ -1,0 +1,145 @@
+.form {
+	width: 500px;
+	height: auto;
+	background: #e6e6e6;
+	border-radius: 8px;
+	box-shadow: 0 0 40px -10px #000;
+	margin: 50px auto;
+	padding: 20px 30px;
+	max-width: calc(100vw - 40px);
+	box-sizing: border-box;
+	font-family:'Montserrat', sans-serif;
+	position:relative
+}
+
+.form .form_header {
+	margin: 10px 0;
+	padding-bottom: 10px;
+	text-align: center;
+	color: #5a5a5a;
+	border-bottom: 3px solid #5a5a5a;
+}
+
+.form input, .form textarea {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	background: none;
+	outline: none;
+	resize: none;
+	border: 0;
+	font-family: 'Montserrat',sans-serif;
+	transition: all .3s;
+	border-bottom: 2px solid #B2B2B2;
+}
+
+.progress-wrapper, .uploaded_file_name_container, .thank_you {
+  display: none;
+}
+
+.uploaded_file_name_container {
+	padding: 0px 10px 15px 10px;
+	transition: all .3s;
+	border-bottom: 2px solid #B2B2B2;
+}
+
+#uploaded_file_name {
+	padding: 8px;
+	background: white;
+
+	.fa-times {
+		padding-left: 5px;
+	}
+}
+
+#uploaded_file_name:hover {
+	cursor: pointer;
+	color: #049DBF;
+}
+
+.form textarea {
+	overflow: hidden;
+}
+
+.form input:focus, .form textarea:focus {
+	border-bottom:2px solid #049DBF;
+}
+
+.form p:before {
+	position: relative;
+	content: attr(type);
+	display: block;
+	margin: 28px 0 0;
+	font-size: 14px;
+	color: #5a5a5a;
+}
+
+.form button {
+	display: block;
+	padding: 8px 20px;
+	margin: 20px 0 15px 0;
+	font-family: 'Montserrat',sans-serif;
+	border: 2px solid #B2B2B2;
+	background: 0;
+	color: #5a5a6e;
+	cursor: pointer;
+	transition:all .3s;
+}
+
+.form button:hover {
+	background:#049DBF;
+	color:#fff;
+	border: 2px solid #049DBF;
+}
+
+.form .email_box {
+	content: 'Hi';
+	position: absolute;
+	bottom: -15px;
+	right: -20px;
+	background: #03738C;
+	color: #fff;
+	width: 270px;
+	padding: 16px 4px 16px 0;
+	border-radius: 6px;
+	font-size: 13px;
+	box-shadow: 10px 10px 40px -14px #000;
+}
+
+.form .email_box span {
+	margin: 0 5px 0 15px;
+}
+
+.form .input_error_container {
+	position: absolute;
+	right: 15px;
+	padding: 5px 10px;
+	font-size: 0.7em;
+	color: #c40022;
+	display: none;
+	transition: all 0.3s;
+}
+
+.thank_you {
+	margin-top: 30px;
+	padding: 60px;
+
+	.fa-paper-plane {
+		color: #049DBF;
+		margin-top: 20px;
+		display: block;
+		text-align: center;
+	}
+}
+
+@media (max-width: 650px) {
+	.form div {
+		bottom: -30px;
+		left: 50%;
+		margin-left: -125px;
+	}
+
+	.form {
+		margin-bottom: 70px;
+	}
+}

@@ -1,0 +1,27 @@
+<div class="spanish_eng_toggle" data-val="ES">ES</div>
+
+<div class="hidden" id="cur_year" data-val="<%= @year %>"></div>
+
+<section class="module parallax parallax_main">
+  <div class="container">
+    <div class="header_container animated fadeInUp">
+      <h1>YMN Translation</h1>
+      <h2 class="subtitle">Spanish-English Translator Service</h2>
+    </div>
+  </div>
+</section>
+
+<!-- Biography about the company -->
+<%= render partial: "about_me" %>
+
+<!-- Key elements to highlight for potential customers -->
+<%= render partial: "highlights" %>
+
+<!-- Examples of translated documents by YMN Translation Services -->
+<%= render partial: "example_docs" %>
+
+<!-- Second main image -->
+<section class="module parallax parallax_secondary"></section>
+
+<!-- Area where you can submit a translation request -->
+<%= render partial: "translation_request" %>

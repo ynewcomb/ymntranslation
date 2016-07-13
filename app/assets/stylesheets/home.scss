@@ -1,0 +1,200 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "compass/css3/transition";
+@import "compass/css3/opacity";
+@import "compass/css3/border-radius";
+
+body {
+  background-color: #F2F2F2 !important;
+  font-size: 12px;
+  margin: 0px;
+  font-family: Open Sans !important;
+  position: relative;
+}
+
+.turbolinks-progress-bar {
+  height: 5px;
+  background-color: green;
+}
+
+.text_centered {
+	text-align: center;
+}
+
+.profile_photo {
+	width: 200px !important;
+	height: 200px !important;
+	border-radius: 200px !important;
+	display: block;
+  margin: auto;
+  background-image: image-url("puerto_rico.jpg");
+  border: 1px solid #333;
+}
+
+.faded_text {
+	opacity: 0.7;
+}
+
+.push {
+	padding: 20px;
+}
+
+.white_section {
+	background-color: white;
+}
+
+.example_document_section {
+	margin: 30px auto;
+}
+
+.stat {
+	font-size: 30px;
+	margin-top: 35px;
+	opacity: 0.8;
+}
+
+.document_card {
+	background-color: #049DBF;
+	padding: 20px;
+	margin: 10px auto;
+	color: white;
+	border-radius: 5px;
+	border: 5px solid #049DBF;
+	display: block;
+	transition: all 1s;
+}
+
+.document_card:hover {
+	text-decoration: none;
+	border: 5px solid #333;
+	color: white;
+}
+
+.document_card:focus {
+	text-decoration: none;
+	color: white;
+}
+
+.document_card h3 {
+	margin-top: 0px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.document_card .fa-file-text-o {
+	display: block;
+	text-align: center;
+	transition: all 1s;
+}
+
+.document_card .fa-file-text-o:hover {
+	color: #333;
+}
+
+.spanish_eng_toggle {
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	padding: 2px 10px;
+	cursor: pointer;
+	z-index: 10000;
+	background: #F2F2F2;
+  border-radius: 3px;
+  border: 1px solid #049DBF;
+}
+
+.spanish_eng_toggle:hover {
+	font-size: 1.2em;
+}
+
+.header_container {
+	display: block;
+	margin: auto;
+	width: 50%;
+	background-color: rgba(3, 115, 140, 0.8);
+	padding: 10px;
+	margin-top: 100px;
+	border-radius: 5px;
+	border: 1px solid #333;
+}
+
+.delayed_animation {
+	animation-duration: 3s !important;
+ 	animation-delay: 0.5s !important;
+}
+
+/* ============================================================
+  PARALLAX
+============================================================ */
+section.module:last-child {
+	margin-bottom: 0;
+}
+section.module .subtitle {
+	margin-bottom: 30px;
+	font-family: "Roboto Slab", serif;
+	font-size: 30px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.7);
+}
+section.module p {
+	margin-bottom: 40px;
+	font-size: 14px;
+}
+section.module p:last-child {
+	margin-bottom: 0;
+}
+section.module.content {
+	padding: 30px 0;
+}
+section.module.parallax {
+	height: 300px;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+section.module.parallax h1 {
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 35px;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+section.module.parallax_main {
+	background-image: image-url("puerto_rico.jpg");
+}
+section.module.parallax_secondary {
+	background-image: image-url("puerto_rico_sunset.jpg");
+}
+
+@media all and (min-width: 600px) {
+	.header_container {
+		margin-top: 50px;
+	}
+	section.module .subtitle {
+		font-size: 22px;
+	}
+	section.module p {
+		font-size: 16px;
+	}
+	section.module.parallax h1 {
+		font-size: 46px;
+	}
+}
+
+@media all and (max-width: 600px) {
+	.header_container {
+		margin-top: 50px;
+	}
+}
+
+@media all and (min-width: 960px) {
+	section.module h2 {
+    font-size: 24px;
+  }
+  section.module.parallax h1 {
+    font-size: 50px;
+  }
+}

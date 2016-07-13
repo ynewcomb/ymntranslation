@@ -1,0 +1,80 @@
+<section class="form animated fadeInDown delayed_animation">
+  <h2 class="form_header">Translation Request</h2>
+
+  <p type="Name:">
+    <input placeholder="Write your name here.." id="from-name"/>
+    <span class="input_error_container" id="from-name-error">cannot leave field blank</span>
+  </p>
+
+  <p type="Email:">
+    <input placeholder="Let us know how to contact you back.." id="from-email"/>
+    <span class="input_error_container" id="from-email-error">cannot leave field blank</span>
+  </p>
+
+  <p type="Length of Translation:">
+    <select type="text" class="fastselect" name="fastselect-len" id="fastselect-len" >
+      <option selected value="500 words">500 Words</option>
+      <option value="750 words">750 Words</option>
+      <option value="1000 words">1000 Words</option>
+      <option value="1500 words">1500 Words</option>
+      <option value="2000 words">2000 Words</option>
+      <option value="2500 words">2500 Words</option>
+      <option value="3000 words">3000 Words</option>
+      <option value="3500 words">3500 Words</option>
+      <option value="4000 words">4000 Words</option>
+      <option value="4500 words">4500 Words</option>
+      <option value="5000 words">5000 Words</option>
+      <option value="5000+ words">5000+ Words</option>
+    </select>
+  </p>
+
+  <p type="Type of Translation:">
+    <select type="text" class="fastselect" name="fastselect-type" id="fastselect-type" >
+      <option selected value="Medical">Medical</option>
+      <option value="Religious">Religious</option>
+      <option value="Other">Other</option>
+    </select>
+  </p>
+
+  <p type="File to Translate:">
+    <div class="uploaded_file_name_container">
+      <span id="uploaded_file_name"><span></span><i class="fa fa-times" aria-hidden="true"></i></span>
+    </div>
+    <%= form_for @upload do |f| %>
+      <%= f.text_field :title, class: 'hidden' %>
+
+      <%= f.file_field :file, required: true, multiple: false %>
+
+      <div class="progress-wrapper">
+        <p>Bitrate: <span class="bitrate"></span></p>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar">
+            0%
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <span class="input_error_container" id="upload-file-error">cannot leave field blank</span>
+  </p>
+
+  <p type="Due Date:">
+    <input type="text" id="due-date" placeholder="Enter a Date"/>
+    <span class="input_error_container" id="due-date-error">cannot leave field blank</span>
+  </p>
+
+  <p type="Message:">
+    <textarea rows='1' placeholder='What would you like to tell us..' id="from-message"></textarea>
+    <span class="input_error_container" id="from-message-error">cannot leave field blank</span>
+  </p>
+
+  <button id="send">Send Message</button>
+  <div class="email_box">
+    <span class="fa fa-envelope-o"></span> yolanda.newcomb@sbcglobal.net
+  </div>
+</section>
+
+<!-- Thank You container is hidden by defaults-->
+<section class="thank_you">
+  <h3 class="text_centered">Thank you for your request! We will get back to you shortly!</h3>
+  <i class="fa fa-paper-plane fa-3x" aria-hidden="true"></i>
+</section>
