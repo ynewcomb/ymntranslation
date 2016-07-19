@@ -90,6 +90,9 @@ GEM
       railties (>= 3.2, < 5.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -116,6 +119,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    multi_xml (0.5.5)
     newrelic_rpm (3.16.0.318)
     nio4r (1.2.1)
     nokogiri (1.6.8)
@@ -160,6 +164,10 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.2.2)
+    raygun4ruby (1.1.9)
+      httparty (~> 0.11)
+      json
+      rack
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -221,6 +229,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0)
+  raygun4ruby
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
