@@ -49,7 +49,7 @@ gem 'compass-rails'
 gem 'compass'
 
 # New Relic
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', group: :production
 
 # Raygun error reporting
 gem 'raygun4ruby'
