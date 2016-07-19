@@ -36,26 +36,28 @@
     </select>
   </p>
 
-  <p type="File to Translate:">
-    <div class="uploaded_file_name_container">
-      <span id="uploaded_file_name"><span></span><i class="fa fa-times" aria-hidden="true"></i></span>
-    </div>
-    <%= form_for @upload do |f| %>
-      <%= f.text_field :title, class: 'hidden' %>
+  <div class="relative_container">
+    <p type="File to Translate:">
+      <div class="uploaded_file_name_container">
+        <span id="uploaded_file_name"><span></span><i class="fa fa-times" aria-hidden="true"></i></span>
+      </div>
+      <%= form_for @upload do |f| %>
+        <%= f.text_field :title, class: 'hidden' %>
 
-      <%= f.file_field :file, required: true, multiple: false %>
+        <%= f.file_field :file, required: true, multiple: false %>
 
-      <div class="progress-wrapper">
-        <p>Bitrate: <span class="bitrate"></span></p>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar">
-            0%
+        <div class="progress-wrapper">
+          <p>Bitrate: <span class="bitrate"></span></p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar">
+              0%
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-    <span class="input_error_container" id="upload-file-error">cannot leave field blank</span>
-  </p>
+      <% end %>
+      <span class="input_error_container" id="upload-file-error">you need to upload a file</span>
+    </p>
+  </div>
 
   <p type="Due Date:">
     <input type="text" id="due-date" placeholder="Enter a Date"/>
