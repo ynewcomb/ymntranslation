@@ -169,9 +169,33 @@ section.module.parallax_secondary {
 	background-image: image-url("puerto_rico_sunset.jpg");
 }
 
-@media all and (min-width: 600px) {
+@media all and (max-width: 1250px) {
+  .header_container {
+    margin-top: 50px;
+  }
+  section.module.parallax h1 {
+    font-size: 45px;
+  }
+}
+
+@media all and (max-width: 960px) {
+	section.module h2, section.module .subtitle {
+    font-size: 24px;
+  }
+  section.module.parallax h1 {
+    font-size: 40px;
+  }
+}
+
+@media all and (max-width: 825px) {
+  section.module.parallax h1 {
+		font-size: 32px;
+	}
+}
+
+@media all and (max-width: 600px) {
 	.header_container {
-		margin-top: 50px;
+		margin-top: 25px;
 	}
 	section.module .subtitle {
 		font-size: 22px;
@@ -180,21 +204,25 @@ section.module.parallax_secondary {
 		font-size: 16px;
 	}
 	section.module.parallax h1 {
-		font-size: 46px;
+		font-size: 28px;
 	}
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 500px) {
 	.header_container {
-		margin-top: 50px;
+		width: 80%;
 	}
 }
 
-@media all and (min-width: 960px) {
-	section.module h2 {
-    font-size: 24px;
-  }
+@media all and (max-width: 350px) {
+	.header_container {
+		width: 90%;
+	}
+
   section.module.parallax h1 {
-    font-size: 50px;
-  }
+		font-size: 24px;
+	}
+  section.module .subtitle {
+		font-size: 18px;
+	}
 }

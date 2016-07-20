@@ -80,23 +80,23 @@
 	color: #5a5a5a;
 }
 
-.form button {
-	display: block;
-	padding: 8px 20px;
-	margin: 20px 0 15px 0;
-	font-family: 'Montserrat',sans-serif;
-	border: 2px solid #B2B2B2;
-	background: 0;
-	color: #5a5a6e;
-	cursor: pointer;
-	transition:all .3s;
-}
-
-.form button:hover {
-	background:#049DBF;
-	color:#fff;
-	border: 2px solid #049DBF;
-}
+// .form button {
+// 	display: block;
+// 	padding: 8px 20px;
+// 	margin: 20px 0 15px 0;
+// 	font-family: 'Montserrat',sans-serif;
+// 	border: 2px solid #B2B2B2;
+// 	background: 0;
+// 	color: #5a5a6e;
+// 	cursor: pointer;
+// 	transition:all .3s;
+// }
+//
+// .form button:hover {
+// 	background:#049DBF;
+// 	color:#fff;
+// 	border: 2px solid #049DBF;
+// }
 
 .form .email_box {
 	content: 'Hi';
@@ -139,8 +139,57 @@
 	}
 }
 
+/*
+========================
+      BUTTON COOL
+========================
+*/
+.btn_cool {
+	margin: 20px 0 25px 0;
+	line-height: 50px;
+	width: 250px;
+	height: 50px;
+	text-align: center;
+	cursor: pointer;
+	color: #333;
+	transition: all 0.5s;
+	position: relative;
+}
+.btn_cool::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-color: RGBA(71, 71, 71, 0.1);
+	transition: all 0.3s;
+}
+.btn_cool:hover::before {
+	opacity: 0 ;
+	transform: scale(0.5,0.5);
+}
+.btn_cool::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0;
+	transition: all 0.3s;
+	border: 1px solid RGBA(3, 115, 140, 0.56);
+	transform: scale(1.2,1.2);
+}
+.btn_cool:hover::after {
+	opacity: 1;
+	transform: scale(1,1);
+}
+
 @media (max-width: 650px) {
-	.form div {
+	.form .email_box {
 		bottom: -30px;
 		left: 50%;
 		margin-left: -125px;
