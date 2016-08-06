@@ -4,27 +4,12 @@
 upload_form = undefined
 
 $(".home.index").ready ->
-
-  # init the select dropdown for length of translation
-  try
-    $(".fastselect").fastselect()
-  catch e
-    console.log "Couldn't load the dropdown menu"
-
   # init the date dropper
   try
-    # $('#calendar').monthly({
-    #   mode: 'picker',
-    #   target: '#due-date',
-    #   startHidden: true,
-    #   showTrigger: '#due-date',
-    #   stylePast: true,
-    #   disablePast: true
-    # });
     year = $("#cur_year").data("val")
     $( "#due-date" ).dateDropper({minYear: year, lang: "en", animate: false})
   catch e
-    console.log "Couldn't load the date picker"
+    console.error "Couldn't load the date picker"
 
   validFields = (name, email, message, due_date, upload_data) ->
     all_good = true
@@ -216,3 +201,9 @@ $(".home.index").ready ->
     upload_data = undefined
     file_name = undefined
     return
+
+  # init the select dropdown for length of translation
+  try
+    $(".fastselect").fastselect()
+  catch e
+    console.error "Couldn't load the dropdown menu"

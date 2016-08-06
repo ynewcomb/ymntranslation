@@ -13,10 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery-readyselector
 //= require fastselect
+//= require jquery-readyselector
 //= require datedropper.min
-//= require monthly
 //= require alertify.min
 //= require jquery-fileupload/basic
 //= require_tree .
