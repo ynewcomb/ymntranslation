@@ -13,8 +13,14 @@ $(".home.index").ready ->
 
   # init the date dropper
   try
-    year = $("#cur_year").data("val")
-    $( "#due-date" ).dateDropper({minYear: year, lang: "en"})
+    $('#calendar').monthly({
+      mode: 'picker',
+      target: '#due-date',
+      startHidden: true,
+      showTrigger: '#due-date',
+      stylePast: true,
+      disablePast: true
+    });
   catch e
     console.log "Couldn't load the date picker"
 
@@ -81,7 +87,7 @@ $(".home.index").ready ->
     el.style.cssText = 'height:' + el.scrollHeight + 'px'
     return
 
-  $('textarea').on 'keydown', autosize
+  $('textarea').on 'keyup', autosize
 
   # function that "translates" the page
   $('.spanish_eng_toggle').on 'click', (e) ->
@@ -113,6 +119,7 @@ $(".home.index").ready ->
     message = $('#from-message').val()
     if validFields(from_name, email, message, date, upload_data)
       console.log "Sent email and uploaded file to dropbox"
+      file_name = upload_data.files[0].name
       upload_data.submit()
       $.ajax
         url: '/send_request/'
@@ -122,6 +129,7 @@ $(".home.index").ready ->
           "email":  email
           "translation_length": length
           "translation_type": type
+          "file_name": file_name
           "due_date": date
           "message": message
 
@@ -168,8 +176,8 @@ $(".home.index").ready ->
       return
 
   # show progress bar
-  wrapper = upload_form.find('.progress-wrapper')
-  progress_bar = wrapper.find('.progress-bar')
+  wrapper = $('.progress-wrapper')
+  progress_bar = $('.progress-bar')
   upload_form.on 'fileuploadstart', ->
     wrapper.show()
     return
