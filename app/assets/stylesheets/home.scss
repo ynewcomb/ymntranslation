@@ -219,6 +219,12 @@ section.module.parallax_secondary {
 	.header_container {
 		width: 80%;
 	}
+
+  .faded_text {
+    padding: 10px;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+  }
 }
 
 @media all and (max-width: 350px) {
