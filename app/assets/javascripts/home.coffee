@@ -13,14 +13,16 @@ $(".home.index").ready ->
 
   # init the date dropper
   try
-    $('#calendar').monthly({
-      mode: 'picker',
-      target: '#due-date',
-      startHidden: true,
-      showTrigger: '#due-date',
-      stylePast: true,
-      disablePast: true
-    });
+    # $('#calendar').monthly({
+    #   mode: 'picker',
+    #   target: '#due-date',
+    #   startHidden: true,
+    #   showTrigger: '#due-date',
+    #   stylePast: true,
+    #   disablePast: true
+    # });
+    year = $("#cur_year").data("val")
+    $( "#due-date" ).dateDropper({minYear: year, lang: "en", animate: false})
   catch e
     console.log "Couldn't load the date picker"
 
