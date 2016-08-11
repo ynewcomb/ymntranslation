@@ -71,15 +71,18 @@ $(".home.index").ready ->
     $(this).css 'border-bottom', '2px solid #049DBF'
     return
 
-  autosize = ->
-    el = this
-    el.style.cssText = 'height:auto; padding:0'
-    # for box-sizing other than "content-box" use:
-    # el.style.cssText = '-moz-box-sizing:content-box';
-    el.style.cssText = 'height:' + el.scrollHeight + 'px'
-    return
+  $.each jQuery('textarea[data-autoresize]'), ->
+    offset = @offsetHeight - (@clientHeight)
 
-  $('textarea').on 'keyup', autosize
+    resizeTextarea = (el) ->
+      $(el).css('height', 'auto').css 'height', el.scrollHeight + offset
+      return
+
+    $(this).on('keyup input', ->
+      resizeTextarea this
+      return
+    ).removeAttr 'data-autoresize'
+    return
 
   # function that "translates" the page
   $('.spanish_eng_toggle').on 'click', (e) ->
@@ -95,6 +98,12 @@ $(".home.index").ready ->
   # Some global variables
   file_name = undefined
   upload_data = undefined
+  from_name = undefined
+  email = undefined
+  length = undefined
+  type = undefined
+  date = undefined
+  message = undefined
 
   # click handler for submit button
   $('#send').on 'click', ->
@@ -113,31 +122,13 @@ $(".home.index").ready ->
       console.log "Sent email and uploaded file to dropbox"
       file_name = upload_data.files[0].name
       upload_data.submit()
-      $.ajax
-        url: '/send_request/'
-        type: 'POST'
-        data:
-          "from_name": from_name
-          "email":  email
-          "translation_length": length
-          "translation_type": type
-          "file_name": file_name
-          "due_date": date
-          "message": message
-
-        success: (response) ->
-          hideTranslationRequest()
-          console.log "Email sent successfully"
-
-        error: (e) ->
-          console.log "Error sending email due to server errors"
-
+      $("#send").hide()
+      $(".spinner").show()
     else
       console.log "Did not send email or upload file to dropbox due to invalid fields"
 
-    return
-
   hideTranslationRequest = () ->
+    $(".spinner").hide()
     $('.form').addClass("fadeOutDown").one 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ->
       $(".thank_you").show()
       $(".thank_you").addClass("animated fadeInUp")
@@ -178,17 +169,33 @@ $(".home.index").ready ->
     wrapper.hide()
     progress_bar.width 0  # Revert progress bar's width back to 0 for future
     alertify.success('File uploaded')
+    # we only send the ajax request to send the email if we successfully
+    # uploaded the file.
+    $.ajax
+      url: '/send_request/'
+      type: 'POST'
+      data:
+        "from_name": from_name
+        "email":  email
+        "translation_length": length
+        "translation_type": type
+        "file_name": file_name
+        "due_date": date
+        "message": message
+
+      success: (response) ->
+        hideTranslationRequest()
+        console.log "Email sent successfully"
+
+      error: (e) ->
+        console.log "Error sending email due to server errors"
+
     return
 
   upload_form.on 'fileuploadfail', ->
     wrapper.hide()
     progress_bar.width 0  # Revert progress bar's width back to 0 for future
     alertify.error('File failed to upload');
-    return
-
-  upload_form.on 'fileuploadprogressall', (e, data) ->
-    progress = parseInt(data.loaded / data.total * 100, 10)
-    progress_bar.css('width', progress + '%').text progress + '%'
     return
 
   bitrate = wrapper.find('.bitrate')

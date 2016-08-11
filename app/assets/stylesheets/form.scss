@@ -39,6 +39,10 @@
 	border-bottom: 2px solid #B2B2B2;
 }
 
+.form textarea {
+	border: 2px solid #B2B2B2;
+}
+
 .progress-wrapper, .uploaded_file_name_container, .thank_you {
   display: none;
 }
@@ -73,8 +77,12 @@
 	overflow: hidden;
 }
 
-.form input:focus, .form textarea:focus {
+.form input:focus {
 	border-bottom:2px solid #049DBF;
+}
+
+.form textarea:focus {
+	border:2px solid #049DBF;
 }
 
 .form p:before {
@@ -85,24 +93,6 @@
 	font-size: 14px;
 	color: #5a5a5a;
 }
-
-// .form button {
-// 	display: block;
-// 	padding: 8px 20px;
-// 	margin: 20px 0 15px 0;
-// 	font-family: 'Montserrat',sans-serif;
-// 	border: 2px solid #B2B2B2;
-// 	background: 0;
-// 	color: #5a5a6e;
-// 	cursor: pointer;
-// 	transition:all .3s;
-// }
-//
-// .form button:hover {
-// 	background:#049DBF;
-// 	color:#fff;
-// 	border: 2px solid #049DBF;
-// }
 
 .form .email_box {
 	content: 'Hi';
