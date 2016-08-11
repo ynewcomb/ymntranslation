@@ -54,9 +54,9 @@
         </div>
       </div>
       <%= form_for @upload do |f| %>
-        <%= f.text_field :title, class: 'hidden' %>
-
-        <%= f.file_field :file, required: true, multiple: false %>
+        <div class="upload_file_container">
+          <%= f.file_field :file, required: true, multiple: false, title: "Add File..." %>
+        </div>
       <% end %>
       <span class="input_error_container" id="upload-file-error">you need to upload a file</span>
     </p>

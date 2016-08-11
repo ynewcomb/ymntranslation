@@ -18,4 +18,5 @@
 //= require datedropper.min
 //= require alertify.min
 //= require jquery-fileupload/basic
+//= require bootstrap-file
 //= require_tree .

@@ -4,6 +4,11 @@
 upload_form = undefined
 
 $(".home.index").ready ->
+  try
+    $('input[type=file]').bootstrapFileInput();
+  catch e
+    console.error e
+
   # init the date dropper
   try
     year = $("#cur_year").data("val")
