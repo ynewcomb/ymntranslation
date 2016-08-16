@@ -8,7 +8,11 @@ Email: <%= @email %>
 Translation Length: <%= @translation_length %>
 Translation Type: <%= @translation_type %>
 
-Sample File Name : <%= @file_name %>
+<% if !@skip %>
+  Sample File Name : <%= @file_name %>
+<% else %>
+  <%= @from_name %> declined to add a sample file
+<% end %>
 
 Due Date: <%= @due_date %>
 Request Additional Information:
@@ -16,4 +20,8 @@ Request Additional Information:
 <%= @message%>
 
 Please send an email to <%= @from_name %> when you've reviewed
-the document on Dropbox.
+<% if !@skip %>
+  the document on Dropbox.
+<% else %>
+  the message.
+<% end %>

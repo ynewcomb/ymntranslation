@@ -13,8 +13,10 @@ class HomeController < ApplicationController
     file_name = params[:file_name]
     date = params[:due_date]
     msg = params[:message]
+    skip = params[:skip] == "false" ? false : true
+    puts skip
 
-    RequestMailer.translation_request(from_name, email, length, type, file_name, date, msg).deliver_later
+    RequestMailer.translation_request(from_name, email, length, type, file_name, date, msg, skip).deliver_later
 
     render text: "Success"
   end

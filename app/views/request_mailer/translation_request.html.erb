@@ -151,7 +151,11 @@
                                         Translation Length: <%= @translation_length %><br/>
                                         Translation Type: <%= @translation_type %>
                                         <br/><br/>
-                                        Sample File Name : <%= @file_name %>
+                                        <% if !@skip %>
+                                          Sample File Name : <%= @file_name %>
+                                        <% else %>
+                                          <%= @from_name %> declined to add a sample file
+                                        <% end %>
                                         <br/><br/>
                                         Due Date: <%= @due_date %><br/>
                                         Request Additional Information:
@@ -320,7 +324,12 @@
                                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                   <tr>
                                     <td valign="top" class="textContent">
-                                      <div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;margin-top:3px;color:#5F5F5F;line-height:135%;">Please send an email to <%= @from_name %> when you've reviewed the document on Dropbox.</div>
+                                      <div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;margin-top:3px;color:#5F5F5F;line-height:135%;">Please send an email to <%= @from_name %> when you've reviewed
+                                      <% if !@skip %>
+                                        the document on Dropbox.
+                                      <% else %>
+                                        the message.
+                                      <% end %></div>
                                     </td>
                                   </tr>
                                 </table>

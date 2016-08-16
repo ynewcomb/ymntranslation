@@ -4,6 +4,10 @@
 upload_form = undefined
 
 $(".home.index").ready ->
+  # uncheck the checkbox
+  $("#file-skip-checkbox")[0].checked = false
+  # Clear the text area
+  $("textarea, #from-name, #from-email").val("")
   try
     $('input[type=file]').bootstrapFileInput();
   catch e
@@ -16,7 +20,7 @@ $(".home.index").ready ->
   catch e
     console.error "Couldn't load the date picker"
 
-  validFields = (name, email, message, due_date, upload_data) ->
+  validFields = (name, email, message, due_date, upload_data, skip_sample_file) ->
     all_good = true
 
     if name.length == 0
@@ -34,16 +38,20 @@ $(".home.index").ready ->
       $('#from-email-error').hide()
 
     if message.length == 0
-      $('#from-message').css 'border-bottom', '2px solid #c40022'
+      $('#from-message').css 'border', '2px solid #c40022'
       $('#from-message-error').show()
       all_good = false
     else
       $('#from-message-error').hide()
 
-    if upload_data == undefined
-      all_good = false
-      $('#upload_file').css 'border-bottom', '2px solid #c40022'
-      $('#upload-file-error').show()
+    if !skip_sample_file
+      # the user hasn't checked the "Don't Send a Sample" box
+      if upload_data == undefined
+        all_good = false
+        $('#upload_file').css 'border-bottom', '2px solid #c40022'
+        $('#upload-file-error').show()
+      else
+        $('#upload-file-error').hide()
     else
       $('#upload-file-error').hide()
 
@@ -56,8 +64,13 @@ $(".home.index").ready ->
 
     return all_good  # will only be false if one of the check fails
 
-  $('input, textarea').on 'keyup', (e) ->
+  $('input').on 'keyup', (e) ->
     $(this).css 'border-bottom', '2px solid #049DBF'
+    $(this).next().hide()
+    return
+
+  $('textarea').on 'keyup', (e) ->
+    $(this).css 'border', '2px solid #049DBF'
     $(this).next().hide()
     return
 
@@ -69,6 +82,16 @@ $(".home.index").ready ->
   $('input').on 'focus', (e) ->
     # highlight input field
     $(this).css 'border-bottom', '2px solid #049DBF'
+    return
+
+  $('textarea').on 'blur', (e) ->
+    # unhighlight input field
+    $(this).css 'border', '2px solid #B2B2B2'
+    return
+
+  $('textarea').on 'focus', (e) ->
+    # highlight input field
+    $(this).css 'border', '2px solid #049DBF'
     return
 
   $.each jQuery('textarea[data-autoresize]'), ->
@@ -104,6 +127,18 @@ $(".home.index").ready ->
   type = undefined
   date = undefined
   message = undefined
+  skip_sample_file = false
+
+  # Click handler for checkbox
+  $("#file-skip-checkbox").on 'change', (e) ->
+    $('#upload-file-error').hide()
+    skip_sample_file = $(@)[0].checked
+    if skip_sample_file
+      $(".control-group").css("margin-top", "-20px")
+      $(".upload_file_container").hide()
+    else
+      $(".control-group").css("margin-top", "0px")
+      $(".upload_file_container").show()
 
   # click handler for submit button
   $('#send').on 'click', ->
@@ -118,10 +153,15 @@ $(".home.index").ready ->
     type = $("#fastselect-type").val()
     date = $("#due-date").val()
     message = $('#from-message').val()
-    if validFields(from_name, email, message, date, upload_data)
+    if validFields(from_name, email, message, date, upload_data, skip_sample_file)
       console.log "Sent email and uploaded file to dropbox"
-      file_name = upload_data.files[0].name
-      upload_data.submit()
+      if !skip_sample_file
+        # user is uploading a file
+        file_name = upload_data.files[0].name
+        upload_data.submit()
+      else
+        # user wants to skip sending a sample file so we call ajax directly
+        sendAjax()
       $("#send").hide()
       $(".spinner").show()
     else
@@ -171,25 +211,7 @@ $(".home.index").ready ->
     alertify.success('File uploaded')
     # we only send the ajax request to send the email if we successfully
     # uploaded the file.
-    $.ajax
-      url: '/send_request/'
-      type: 'POST'
-      data:
-        "from_name": from_name
-        "email":  email
-        "translation_length": length
-        "translation_type": type
-        "file_name": file_name
-        "due_date": date
-        "message": message
-
-      success: (response) ->
-        hideTranslationRequest()
-        console.log "Email sent successfully"
-
-      error: (e) ->
-        console.log "Error sending email due to server errors"
-
+    sendAjax()
     return
 
   upload_form.on 'fileuploadfail', ->
@@ -205,6 +227,28 @@ $(".home.index").ready ->
     progress = parseInt(data.loaded / data.total * 100, 10)
     progress_bar.css('width', progress + '%').text progress + '%'
     return
+
+  # function to send AJAX call
+  sendAjax = () ->
+    $.ajax
+      url: '/send_request/'
+      type: 'POST'
+      data:
+        "from_name": from_name
+        "email":  email
+        "translation_length": length
+        "translation_type": type
+        "file_name": file_name
+        "due_date": date
+        "message": message
+        "skip": skip_sample_file
+
+      success: (response) ->
+        hideTranslationRequest()
+        console.log "Email sent successfully"
+
+      error: (e) ->
+        console.log "Error sending email due to server errors"
 
   # code to handle the button to remove file from translation request
   $('.form').on 'click', '#uploaded_file_name', ->
