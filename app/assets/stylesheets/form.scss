@@ -8,8 +8,7 @@
 	padding: 20px 30px;
 	max-width: calc(100vw - 40px);
 	box-sizing: border-box;
-	font-family:'Montserrat', sans-serif;
-	position:relative
+	position: relative;
 }
 
 .form {
@@ -24,6 +23,7 @@
 	text-align: center;
 	color: #5a5a5a;
 	border-bottom: 3px solid #5a5a5a;
+	font-size: 30px;
 }
 
 .form input, .form textarea {
@@ -34,7 +34,6 @@
 	outline: none;
 	resize: none;
 	border: 0;
-	font-family: 'Montserrat',sans-serif;
 	transition: all .3s;
 	border-bottom: 2px solid #B2B2B2;
 }
@@ -101,7 +100,7 @@
 	right: -20px;
 	background: #03738C;
 	color: #fff;
-	width: 270px;
+	width: 220px;
 	padding: 16px 4px 16px 0;
 	border-radius: 6px;
 	font-size: 13px;
@@ -109,7 +108,7 @@
 }
 
 .form .email_box span {
-	margin: 0 5px 0 15px;
+	margin: 0 15px 0 15px;
 }
 
 .form .input_error_container {
@@ -143,7 +142,7 @@
 .btn_cool {
 	margin: 20px 0 25px 0;
 	line-height: 50px;
-	width: 250px;
+	width: 200px;
 	height: 50px;
 	text-align: center;
 	cursor: pointer;
@@ -211,7 +210,7 @@
 	display: block;
 	padding-left: 30px;
 	cursor: pointer;
-	font-weight: 100;
+	font-weight: 300;
 	padding-top: 3px;
 }
 

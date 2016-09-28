@@ -9,7 +9,6 @@ body {
   background-color: #F2F2F2 !important;
   font-size: 12px;
   margin: 0px;
-  font-family: Open Sans !important;
   position: relative;
 }
 
@@ -20,6 +19,15 @@ body {
 
 .text_centered {
 	text-align: center;
+}
+
+h1, .form_header, h3 {
+  font: 53px/50px 'Julius Sans One', Helvetica, sans-serif;
+  font-weight: inherit !important;
+}
+
+p, .faded_text, .subtitle, .email_box {
+  font: 16px/24px 'Crimson Text', Georgia, serif;
 }
 
 .profile_photo {
@@ -216,6 +224,9 @@ section.module.parallax_secondary {
 }
 
 @media all and (max-width: 500px) {
+  section.module.parallax_main {
+    height: 300px;
+  }
 	.header_container {
 		width: 80%;
 	}

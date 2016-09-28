@@ -62,7 +62,6 @@ General styling
   position: relative;
   box-sizing: border-box;
   padding: 8px 12px;
-  min-width: 14.28571em;
   cursor: pointer;
 }
 .fstToggleBtn:after {
