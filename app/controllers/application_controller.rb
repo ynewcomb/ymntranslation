@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 	# Get locale from parameters passed in
 	# i.e. www.ymntranslation.com?lang=es
 	def extract_locale_from_params
-	  parsed_locale = params[:lang]
+	  parsed_locale = params[:lang].nil? ? "" : params[:lang].downcase
 	  (I18n.available_locales.map(&:to_s).include? parsed_locale) ? parsed_locale  : nil
 	end
 end

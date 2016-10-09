@@ -2,8 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 upload_form = undefined
-
-$(".home.index").ready ->
+document.addEventListener 'turbolinks:load', ->
   # uncheck the checkbox
   $("#file-skip-checkbox")[0].checked = false
   # Clear the text area
@@ -111,11 +110,14 @@ $(".home.index").ready ->
   $('.spanish_eng_toggle').on 'click', (e) ->
     toggle_text = $(this).data('val')
     if toggle_text == 'ES'
+      # switching over to spanish
       $(this).text 'EN'
       $(this).data 'val', 'EN'
     else
+      # switching over to english
       $(this).text 'ES'
       $(this).data 'val', 'ES'
+    Turbolinks.visit("?lang=#{toggle_text}")
     return
 
   # Some global variables

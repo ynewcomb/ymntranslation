@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require fastselect
-//= require jquery-readyselector
 //= require datedropper.min
 //= require alertify.min
 //= require jquery-fileupload/basic

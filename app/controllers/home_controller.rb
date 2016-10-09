@@ -3,6 +3,8 @@ class HomeController < ApplicationController
     @title = "YMN Translation Services"
     @upload = Upload.new
     @year = Time.new.year.to_s
+    cur_locale = I18n.locale.to_s.upcase
+    @lang_to_switch = cur_locale == "EN" ? "ES" : "EN"
   end
 
   def send_request
@@ -14,7 +16,6 @@ class HomeController < ApplicationController
     date = params[:due_date]
     msg = params[:message]
     skip = params[:skip] == "false" ? false : true
-    puts skip
 
     RequestMailer.translation_request(from_name, email, length, type, file_name, date, msg, skip).deliver_later
 
