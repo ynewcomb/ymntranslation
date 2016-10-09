@@ -1,24 +1,6 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-
-en:
+es:
   about_section: 
-    headline: 'About YMN Translation'
+    headline: 'Sobre YMN Translation'
     paragraph_one: 'Yolanda Morales Newcomb is a native Spanish speaker, born and raised in Puerto Rico. She holds a B.A. in Mathematics and Education from the University of Puerto Rico and earned a Master Degree in Business Management at the University of Wisconsin-Madison.'
     paragraph_two: 'In response to the need for top quality translations because of the growing Spanish speaking population in Texas and the rest of the country, she founded YMN Translation Services over twenty-two years ago. As a freelance translator, she has offered translation and interpreting services to a wide variety of businesses and non-profit organizations.'
     paragraph_three: 'Her vast experience includes translation of a very diverse array of documents in multiple fields: business, marketing, education, legal, medical, and religious. Her work and customer service are defined by excellence and dependability.'
@@ -27,7 +9,7 @@ en:
     subtitle: 'Spanish-English Translator Service'
 
   highlights:
-    one: '22+ Years of Experience'
+    one: '22+ Years Experience'
     two: 'Native Spanish Speaker'
     three: 'Lorem Ipsum Certified'
 

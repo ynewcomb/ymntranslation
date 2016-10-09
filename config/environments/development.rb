@@ -15,12 +15,8 @@ Rails.application.configure do
   # Correctly sending mail
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_USER'],
-    :password       => ENV['MAILGUN_PASSWORD'],
-    :domain         => ENV['MAILGUN_DOMAIN'],
-    :authentication => :plain,
+    address: 'localhost',
+    port: 1025
   }
 
   # Enable/disable caching. By default caching is disabled.

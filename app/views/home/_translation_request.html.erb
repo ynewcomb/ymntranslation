@@ -1,47 +1,47 @@
 <section class="form animated fadeIn delayed_animation">
-  <h2 class="form_header">Translation Request</h2>
+  <h2 class="form_header"><%= t('form.title') %></h2>
 
-  <p type="Name:">
-    <input placeholder="Write your name here.." id="from-name"/>
-    <span class="input_error_container" id="from-name-error">cannot leave field blank</span>
+  <p type="<%= t('form.name_label') %>">
+    <input type="text" placeholder="<%= t('form.name_placeholder') %>" id="from-name"/>
+    <span class="input_error_container" id="from-name-error"><%= t('form.error_blank') %></span>
   </p>
 
-  <p type="Email:">
-    <input placeholder="Let us know how to contact you back.." id="from-email"/>
-    <span class="input_error_container" id="from-email-error">cannot leave field blank</span>
+  <p type="<%= t('form.email_label') %>">
+    <input type="email" placeholder="<%= t('form.email_placeholder') %>" id="from-email"/>
+    <span class="input_error_container" id="from-email-error"><%= t('form.error_blank') %></span>
   </p>
 
-  <p type="Length of Translation:">
+  <p type="<%= t('form.length_label') %>">
     <select type="text" class="fastselect" name="fastselect-len" id="fastselect-len" >
-      <option selected value="500 words">500 Words</option>
-      <option value="750 words">750 Words</option>
-      <option value="1000 words">1000 Words</option>
-      <option value="1500 words">1500 Words</option>
-      <option value="2000 words">2000 Words</option>
-      <option value="2500 words">2500 Words</option>
-      <option value="3000 words">3000 Words</option>
-      <option value="3500 words">3500 Words</option>
-      <option value="4000 words">4000 Words</option>
-      <option value="4500 words">4500 Words</option>
-      <option value="5000 words">5000 Words</option>
-      <option value="5000+ words">5000+ Words</option>
+      <option selected value="<%= t('form.length_500') %>"><%= t('form.length_500') %></option>
+      <option value="<%= t('form.length_750') %>"><%= t('form.length_750') %></option>
+      <option value="<%= t('form.length_1000') %>"><%= t('form.length_1000') %></option>
+      <option value="<%= t('form.length_1500') %>"><%= t('form.length_1500') %></option>
+      <option value="<%= t('form.length_2000') %>"><%= t('form.length_2000') %></option>
+      <option value="<%= t('form.length_2500') %>"><%= t('form.length_2500') %></option>
+      <option value="<%= t('form.length_3000') %>"><%= t('form.length_3000') %></option>
+      <option value="<%= t('form.length_3500') %>"><%= t('form.length_3500') %></option>
+      <option value="<%= t('form.length_4000') %>"><%= t('form.length_4000') %></option>
+      <option value="<%= t('form.length_4500') %>"><%= t('form.length_4500') %></option>
+      <option value="<%= t('form.length_5000') %>"><%= t('form.length_5000') %></option>
+      <option value="<%= t('form.length_5000+') %>"><%= t('form.length_5000+') %></option>
     </select>
   </p>
 
-  <p type="Type of Translation:">
+  <p type="<%= t('form.type_label') %>">
     <select type="text" class="fastselect" name="fastselect-type" id="fastselect-type" >
-      <option value="Business" selected>Business</option>
-      <option value="Marketing">Marketing</option>
-      <option value="Education">Education</option>
-      <option value="Legal">Legal</option>
-      <option value="Medical">Medical</option>
-      <option value="Religious">Religious</option>
-      <option value="Other">Other</option>
+      <option value="<%= t('form.type_business') %>" selected><%= t('form.type_business') %></option>
+      <option value="<%= t('form.type_marketing') %>"><%= t('form.type_marketing') %></option>
+      <option value="<%= t('form.type_education') %>"><%= t('form.type_education') %></option>
+      <option value="<%= t('form.type_legal') %>"><%= t('form.type_legal') %></option>
+      <option value="<%= t('form.type_medical') %>"><%= t('form.type_medical') %></option>
+      <option value="<%= t('form.type_religious') %>"><%= t('form.type_religious') %></option>
+      <option value="<%= t('form.type_other') %>"><%= t('form.type_other') %></option>
     </select>
   </p>
 
   <div class="relative_container">
-    <p type="Sample of File to Translate:">
+    <p type="<%= t('form.sample_label') %>">
       <div class="uploaded_file_name_container">
         <span id="uploaded_file_name"><span></span><i class="fa fa-times" aria-hidden="true"></i></span>
       </div>
@@ -55,33 +55,32 @@
       </div>
       <%= form_for @upload do |f| %>
         <div class="upload_file_container">
-          <%= f.file_field :file, required: true, multiple: false, title: "Add File..." %>
+          <%= f.file_field :file, required: true, multiple: false, title: t('form.add_file_text') %>
         </div>
       <% end %>
 
-      <span class="input_error_container" id="upload-file-error">you need to upload a file</span>
+      <span class="input_error_container" id="upload-file-error"><%= t('form.error_file') %></span>
     </p>
   </div>
 
   <div class="control-group">
-    <label class="control control--checkbox">Don't Send a Sample
+    <label class="control control--checkbox"><%= t('form.no_sample') %>
       <input type="checkbox" checked="unchecked" id="file-skip-checkbox"/>
       <div class="control__indicator"></div>
     </label>
   </div>
 
-  <p type="Due Date:">
-    <input type="text" id="due-date" placeholder="Select a Date"/>
+  <p type="<%= t('form.date_label') %>">
+    <input type="text" id="due-date" placeholder="<%= t('form.date_placeholder') %>"/>
     <div class="monthly" id="calendar"></div>
-    <span class="input_error_container" id="due-date-error">cannot leave field blank</span>
   </p>
 
-  <p type="Message:">
-    <textarea rows='2' data-autoresize placeholder='What would you like to tell us..' id="from-message"></textarea>
-    <span class="input_error_container" id="from-message-error">cannot leave field blank</span>
+  <p type="<%= t('form.message_label') %>">
+    <textarea rows='2' data-autoresize placeholder='<%= t('form.message_placeholder') %>' id="from-message"></textarea>
+    <span class="input_error_container" id="from-message-error"><%= t('form.error_blank') %></span>
   </p>
 
-  <div id="send" class="btn_cool">Send Message</div>
+  <div id="send" class="btn_cool"><%= t('form.send') %></div>
 
   <div class="spinner">
     <div class="bounce1"></div>
@@ -90,12 +89,12 @@
   </div>
 
   <div class="email_box">
-    <span class="fa fa-envelope-o"></span> yolanda@ymntranslation.com
+    <span class="fa fa-envelope-o"></span> <%= t('form.contact_email') %>
   </div>
 </section>
 
 <!-- Thank You container is hidden by defaults-->
 <section class="thank_you">
-  <h3 class="text_centered">Thank you for your request! We will get back to you shortly!</h3>
+  <h3 class="text_centered"><%= t('form.thank_you') %></h3>
   <i class="fa fa-paper-plane fa-3x" aria-hidden="true"></i>
 </section>
