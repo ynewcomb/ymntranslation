@@ -109,16 +109,8 @@ document.addEventListener 'turbolinks:load', ->
   # function that "translates" the page
   $('.spanish_eng_toggle').on 'click', (e) ->
     toggle_text = $(this).data('val')
-    if toggle_text == 'ES'
-      # switching over to spanish
-      $(this).text 'EN'
-      $(this).data 'val', 'EN'
-    else
-      # switching over to english
-      $(this).text 'ES'
-      $(this).data 'val', 'ES'
+    $(this).hide()
     Turbolinks.visit("?lang=#{toggle_text}")
-    return
 
   # Some global variables
   file_name = undefined
