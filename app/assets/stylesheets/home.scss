@@ -64,6 +64,10 @@ p, .faded_text, .subtitle, .email_box {
 	opacity: 0.8;
 }
 
+.small_logo {
+	width: 80px;
+}
+
 .document_card {
 	background-color: #049DBF;
 	padding: 20px;
@@ -220,6 +224,14 @@ section.module.parallax_secondary {
 	}
 	section.module.parallax h1 {
 		font-size: 28px;
+	}
+	.about_me_header {
+		font-size: 24px;
+		padding-left: 10px;
+	}
+	.stat h3 {
+		font-size: 20px;
+		opacity: 0.8;
 	}
 }
 

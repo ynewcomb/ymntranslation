@@ -18,7 +18,7 @@
 
 en:
   about_section: 
-    headline: 'About YMN Translation'
+    headline: 'About YMN Translation Services'
     paragraph_one: 'Yolanda Morales Newcomb is a native Spanish speaker, born and raised in Puerto Rico. She holds a B.A. in Mathematics and Education from the University of Puerto Rico and earned a Master Degree in Business Management at the University of Wisconsin-Madison.'
     paragraph_two: 'In response to the need for top quality translations because of the growing Spanish speaking population in Texas and the rest of the country, she founded YMN Translation Services over twenty-two years ago. As a freelance translator, she has offered translation and interpreting services to a wide variety of businesses and non-profit organizations.'
     paragraph_three: 'Her vast experience includes translation of a very diverse array of documents in multiple fields: business, marketing, education, legal, medical, and religious. Her work and customer service are defined by excellence and dependability.'
@@ -28,19 +28,19 @@ en:
 
   highlights:
     one: '22+ Years of Experience'
-    two: 'Native Spanish Speaker'
-    three: 'Lorem Ipsum Certified'
+    two: 'Member of American Translators Association'
+    three: 'Native Spanish Speaker' 
 
   form:
     title: 'Translation Request'
 
-    name_label: 'Name:'
-    name_placeholder: 'Write your name here..'
+    name_label: 'Name'
+    name_placeholder: 'Write your name here'
 
-    email_label: 'Email:'
-    email_placeholder: 'Let us know how to contact you back..'
+    email_label: 'Email'
+    email_placeholder: 'Let us know how to contact you back'
 
-    length_label: 'Length of Translation:'
+    length_label: 'Length of Translation'
     length_500: '500 Words'
     length_750: '750 Words'
     length_1000: '1000 Words'
@@ -54,7 +54,7 @@ en:
     length_5000: '5000 Words'
     length_5000+: '5000+ Words'
 
-    type_label: 'Type of Translation:'
+    type_label: 'Type of Translation'
     type_business: 'Business'
     type_marketing: 'Marketing'
     type_education: 'Education'
@@ -63,17 +63,17 @@ en:
     type_religious: 'Religious'
     type_other: 'Other'
 
-    sample_label: 'Sample of File to Translate:'
-    date_label: 'Due Date:'
+    sample_label: 'Sample of File to Translate'
+    date_label: 'Due Date'
     date_placeholder: 'Select a Date'
 
-    message_label: 'Message:'
-    message_placeholder: 'What would you like to tell us..'
+    message_label: 'Message'
+    message_placeholder: 'What would you like to tell us'
 
-    add_file_text: 'Add File...'
+    add_file_text: 'Add File'
     contact_email: 'yolanda@ymntranslation.com'
     error_blank: 'cannot leave field blank'
     error_file: "you need to upload a file"
-    no_sample: "Do not Send a Sample"
+    no_sample: "Choose not to Send a Sample"
     send: 'Send Message'
     thank_you: 'Thank you for your request! We will get back to you shortly!'
