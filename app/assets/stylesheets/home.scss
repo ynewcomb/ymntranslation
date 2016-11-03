@@ -64,6 +64,12 @@ p, .faded_text, .subtitle, .email_box {
 	opacity: 0.8;
 }
 
+.main_logo {
+	width: 80%;
+    margin: 10px auto;
+    display: block;
+}
+
 .small_logo {
 	width: 80px;
 }
@@ -115,7 +121,7 @@ p, .faded_text, .subtitle, .email_box {
 	padding: 13px;
 	cursor: pointer;
 	z-index: 10000;
-	background: rgba(3, 115, 140, 0.95);
+	background: #37A8E0;
 	border-radius: 50px;
 	border: 1px solid #049DBF;
 	font-size: 1.2em;
@@ -126,15 +132,21 @@ p, .faded_text, .subtitle, .email_box {
 	transform: scale(1.2);
 }
 
+.about_me_header {
+	color: #83368D;
+}
+
 .header_container {
 	display: block;
 	margin: auto;
 	width: 50%;
-	background-color: rgba(3, 115, 140, 0.8);
+	background-color: rgba(255, 255, 255, 0.90);
 	padding: 10px;
 	margin-top: 100px;
 	border-radius: 5px;
-	border: 1px solid #333;
+}
+.header_container .subtitle {
+	color: #6D6E71 !important;
 }
 
 .delayed_animation {
