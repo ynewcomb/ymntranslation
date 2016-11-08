@@ -6,9 +6,18 @@
     <span class="input_error_container" id="from-name-error"><%= t('form.error_blank') %></span>
   </p>
 
-  <p type="<%= t('form.email_label') %>">
-    <input type="email" placeholder="<%= t('form.email_placeholder') %>" id="from-email"/>
-    <span class="input_error_container" id="from-email-error"><%= t('form.error_blank') %></span>
+  <p type="<%= t('form.email_and_number_label') %>">
+    <div class="row">
+      <div class="col-md-6">
+        <input type="email" placeholder="<%= t('form.email_placeholder') %>" id="from-email"/>
+        <span class="input_error_container" id="from-email-error"><%= t('form.error_blank') %></span>
+      </div>
+
+      <div class="col-md-6">
+        <input type="tel" placeholder="<%= t('form.number_placeholder') %>" id="from-number"/>
+        <span class="input_error_container" id="from-number-error"><%= t('form.error_blank') %></span>
+      </div>
+    </div>
   </p>
 
   <p type="<%= t('form.length_label') %>">
@@ -46,7 +55,6 @@
         <span id="uploaded_file_name"><span></span><i class="fa fa-times" aria-hidden="true"></i></span>
       </div>
       <div class="progress-wrapper">
-        <p>Bitrate: <span class="bitrate"></span></p>
         <div class="progress">
           <div class="progress-bar" role="progressbar">
             0%

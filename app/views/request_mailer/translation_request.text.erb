@@ -3,7 +3,12 @@ New Translation Request
 Hi Yolanda, you have received a new request with the following information...
 
 Name: <%= @from_name %>
-Email: <%= @email %>
+<% unless @email.nil? or @email.length == 0 %>
+  Email: <%= @email %>
+<% end %>
+<% unless @phone.nil? or @phone.length == 0 %>
+  Phone: <%= @phone %>
+<% end %>
 
 Translation Length: <%= @translation_length %>
 Translation Type: <%= @translation_type %>
@@ -24,4 +29,12 @@ Please send an email to <%= @from_name %> when you've reviewed
   the document on Dropbox.
 <% else %>
   the message.
+<% end %>
+Based on their request, you can contact <%= @from_name %> 
+<% if @email.length != 0 and @phone.length == 0 %>
+	by sending them an email.
+<% elsif @email.length == 0 and @phone.length != 0  %>
+	by giving them a call.
+<% elsif @email.length != 0 and @phone.length != 0 %>
+	by email or phone.
 <% end %>

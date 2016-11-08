@@ -19,8 +19,9 @@ es:
     name_label: 'Nombre'
     name_placeholder: 'Escriba su nombre aquí'
 
-    email_label: 'Correo electrónico'
-    email_placeholder: '¿Cómo prefiere que nos comuniquemos con usted?'
+    email_and_number_label: '¿Cómo prefiere que nos comuniquemos con usted?'
+    email_placeholder: 'Correo electrónico'
+    number_placeholder: 'Teléfono'
 
     length_label: 'Número de páginas/palabras de la traducción'
     length_500: '500 palabras'

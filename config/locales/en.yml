@@ -37,8 +37,9 @@ en:
     name_label: 'Name'
     name_placeholder: 'Write your name here'
 
-    email_label: 'Email'
-    email_placeholder: 'Let us know how to contact you back'
+    email_and_number_label: 'Let us know how to contact you back'
+    email_placeholder: 'Email'
+    number_placeholder: 'Phone Number'
 
     length_label: 'Length of Translation'
     length_500: '500 Words'

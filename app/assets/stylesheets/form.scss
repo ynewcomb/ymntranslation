@@ -21,7 +21,7 @@
 	margin: 10px 0;
 	padding-bottom: 10px;
 	text-align: center;
-	color: #5a5a5a;
+	color: #37A8E0;
 	border-bottom: 3px solid #5a5a5a;
 	font-size: 30px;
 }
@@ -64,7 +64,7 @@
 
 #uploaded_file_name:hover {
 	cursor: pointer;
-	color: #049DBF;
+	color: #37A8E0;
 }
 
 .upload_file_container {
@@ -77,18 +77,18 @@
 }
 
 .form input:focus {
-	border-bottom:2px solid #049DBF;
+	border-bottom:2px solid #37A8E0;
 }
 
 .form textarea:focus {
-	border:2px solid #049DBF;
+	border:2px solid #37A8E0;
 }
 
 .form p:before {
 	position: relative;
 	content: attr(type);
 	display: block;
-	margin: 28px 0 0;
+	margin: 15px 0 0;
 	font-size: 14px;
 	color: #5a5a5a;
 }
@@ -98,7 +98,7 @@
 	position: absolute;
 	bottom: -15px;
 	right: -20px;
-	background: #03738C;
+	background: #83378D;
 	color: #fff;
 	width: 220px;
 	padding: 16px 4px 16px 0;
@@ -127,7 +127,7 @@
 	padding: 60px;
 
 	.fa-paper-plane {
-		color: #049DBF;
+		color: #37A8E0;
 		margin-top: 20px;
 		display: block;
 		text-align: center;
@@ -246,7 +246,7 @@
 
 /* Checked state */
 .control input:checked ~ .control__indicator {
-	background: #2aa1c0;
+	background: #37A8E0;
 }
 
 /* Check mark */

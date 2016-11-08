@@ -19,7 +19,7 @@ document.addEventListener 'turbolinks:load', ->
   catch e
     console.error "Couldn't load the date picker"
 
-  validFields = (name, email, message, due_date, upload_data, skip_sample_file) ->
+  validFields = (name, email, phone, message, due_date, upload_data, skip_sample_file) ->
     all_good = true
 
     if name.length == 0
@@ -30,11 +30,25 @@ document.addEventListener 'turbolinks:load', ->
       $('#from-name-error').hide()
 
     if email.length == 0
-      $('#from-email').css 'border-bottom', '2px solid #c40022'
-      $('#from-email-error').show()
-      all_good = false
+      if phone.length == 0
+        $('#from-email').css 'border-bottom', '2px solid #c40022'
+        # only show the email error if phone is also empty
+        $('#from-email-error').show()
     else
       $('#from-email-error').hide()
+      $('#from-number-error').hide()
+
+    if phone.length == 0
+      if email.length == 0
+        $('#from-number').css 'border-bottom', '2px solid #c40022'
+        # only show the phone error if email is also empty
+        $('#from-number-error').show()
+    else
+      $('#from-email-error').hide()
+      $('#from-number-error').hide()
+
+    if email.length == 0 and phone.length == 0
+      all_good = false
 
     if message.length == 0
       $('#from-message').css 'border', '2px solid #c40022'
@@ -64,12 +78,26 @@ document.addEventListener 'turbolinks:load', ->
     return all_good  # will only be false if one of the check fails
 
   $('input').on 'keyup', (e) ->
-    $(this).css 'border-bottom', '2px solid #049DBF'
+    $(this).css 'border-bottom', '2px solid #37A8E0'
     $(this).next().hide()
+    if $(this).attr("id") == 'from-email'
+      # case: user is typing into the email field
+      # we want to check the length of the email field
+      # and check if has anything in it. If it does, we 
+      # can remove the errors from the phone field
+      if $("#from-email").val().length != 0
+        $("#from-number").css 'border-bottom', '2px solid #37A8E0'
+        $('#from-number-error').hide()
+    else if $(this).attr("id") == 'from-number'
+      # case: we do the reverse of above; now we are on
+      # the phone field
+      if $("#from-number").val().length != 0
+        $("#from-email").css 'border-bottom', '2px solid #37A8E0'
+        $('#from-email-error').hide()
     return
 
   $('textarea').on 'keyup', (e) ->
-    $(this).css 'border', '2px solid #049DBF'
+    $(this).css 'border', '2px solid #37A8E0'
     $(this).next().hide()
     return
 
@@ -80,7 +108,7 @@ document.addEventListener 'turbolinks:load', ->
 
   $('input').on 'focus', (e) ->
     # highlight input field
-    $(this).css 'border-bottom', '2px solid #049DBF'
+    $(this).css 'border-bottom', '2px solid #37A8E0'
     return
 
   $('textarea').on 'blur', (e) ->
@@ -90,7 +118,7 @@ document.addEventListener 'turbolinks:load', ->
 
   $('textarea').on 'focus', (e) ->
     # highlight input field
-    $(this).css 'border', '2px solid #049DBF'
+    $(this).css 'border', '2px solid #37A8E0'
     return
 
   $.each jQuery('textarea[data-autoresize]'), ->
@@ -117,6 +145,7 @@ document.addEventListener 'turbolinks:load', ->
   upload_data = undefined
   from_name = undefined
   email = undefined
+  phone = undefined
   length = undefined
   type = undefined
   date = undefined
@@ -128,7 +157,7 @@ document.addEventListener 'turbolinks:load', ->
     $('#upload-file-error').hide()
     skip_sample_file = $(@)[0].checked
     if skip_sample_file
-      $(".control-group").css("margin-top", "-20px")
+      $(".control-group").css("margin-top", "-10px")
       $(".upload_file_container").hide()
     else
       $(".control-group").css("margin-top", "0px")
@@ -143,11 +172,12 @@ document.addEventListener 'turbolinks:load', ->
   sendEmail = () ->
     from_name = $('#from-name').val()
     email = $('#from-email').val()
+    phone = $('#from-number').val()
     length = $("#fastselect-len").val()
     type = $("#fastselect-type").val()
     date = $("#due-date").val()
     message = $('#from-message').val()
-    if validFields(from_name, email, message, date, upload_data, skip_sample_file)
+    if validFields(from_name, email, phone, message, date, upload_data, skip_sample_file)
       console.log "Sent email and uploaded file to dropbox"
       if !skip_sample_file
         # user is uploading a file
@@ -183,13 +213,14 @@ document.addEventListener 'turbolinks:load', ->
         # we don't want to upload to dropbox every time we select
         # a new file
         upload_form.hide()  # hide the upload mechanism
+        $(".control-group").hide()  # hide the "Dont Send a Sample" text
         $("#uploaded_file_name span").text(file_name)
         $(".uploaded_file_name_container").show()
         $('#upload-file-error').hide()
 
         upload_data = data
       else
-        alertify.message(file_name + ' must be DOC or DOCX')
+        alertify.error('File must be DOC or DOCX')
       return
 
   # show progress bar
@@ -214,10 +245,8 @@ document.addEventListener 'turbolinks:load', ->
     alertify.error('File failed to upload');
     return
 
-  bitrate = wrapper.find('.bitrate')
   # show how fast the file is being uploaded
   upload_form.on 'fileuploadprogressall', (e, data) ->
-    bitrate.text (data.bitrate / 1024).toFixed(2) + 'Kb/s'
     progress = parseInt(data.loaded / data.total * 100, 10)
     progress_bar.css('width', progress + '%').text progress + '%'
     return
@@ -230,6 +259,7 @@ document.addEventListener 'turbolinks:load', ->
       data:
         "from_name": from_name
         "email":  email
+        "phone":  phone
         "translation_length": length
         "translation_type": type
         "file_name": file_name
@@ -247,6 +277,7 @@ document.addEventListener 'turbolinks:load', ->
   # code to handle the button to remove file from translation request
   $('.form').on 'click', '#uploaded_file_name', ->
     $(this).parent().hide()
+    $(".control-group").show()
     upload_form.show()
     upload_data = undefined
     file_name = undefined

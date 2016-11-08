@@ -111,13 +111,13 @@ General styling
 }
 .fstResultItem.fstFocused {
   color: #fff;
-  background-color: #049DBF;
-  border-color: #049DBF;
+  background-color: #37A8E0;
+  border-color: #37A8E0;
 }
 .fstResultItem.fstSelected {
   color: #fff;
-  background-color: #049DBF;
-  border-color: #049DBF;
+  background-color: #37A8E0;
+  border-color: #37A8E0;
 }
 
 .fstGroupTitle {
