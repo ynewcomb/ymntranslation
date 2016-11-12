@@ -44,18 +44,21 @@
 
 .progress-wrapper, .uploaded_file_name_container, .thank_you {
   display: none;
+}
+
+.thank_you {
 	border-top: 2px solid $color-near-white;
 }
 
 .uploaded_file_name_container {
 	padding: 0px 10px 15px 10px;
 	transition: all .3s;
-	border-bottom: 2px solid $border-color-input-form;
+	border-bottom: 1px solid $color-near-white;
 }
 
 #uploaded_file_name {
 	padding: 8px;
-	background: $color-white;
+	background: $color-near-white;
 	line-height: 40px;
 
 	.fa-times {
