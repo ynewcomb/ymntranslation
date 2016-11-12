@@ -12,18 +12,11 @@ document.addEventListener 'turbolinks:load', ->
   catch e
     console.error e
 
-  # init the date dropper
-  try
-    year = $("#cur_year").data("val")
-    $( "#due-date" ).dateDropper({minYear: year, lang: "en", animate: false})
-  catch e
-    console.error "Couldn't load the date picker"
-
   validFields = (name, email, phone, message, due_date, upload_data, skip_sample_file) ->
     all_good = true
 
     if name.length == 0
-      $('#from-name').css 'border-bottom', '2px solid #c40022'
+      $('#from-name').css 'border', '1px solid #c40022'
       $('#from-name-error').show()
       all_good = false
     else
@@ -31,7 +24,7 @@ document.addEventListener 'turbolinks:load', ->
 
     if email.length == 0
       if phone.length == 0
-        $('#from-email').css 'border-bottom', '2px solid #c40022'
+        $('#from-email').css 'border', '1px solid #c40022'
         # only show the email error if phone is also empty
         $('#from-email-error').show()
     else
@@ -40,7 +33,7 @@ document.addEventListener 'turbolinks:load', ->
 
     if phone.length == 0
       if email.length == 0
-        $('#from-number').css 'border-bottom', '2px solid #c40022'
+        $('#from-number').css 'border', '1px solid #c40022'
         # only show the phone error if email is also empty
         $('#from-number-error').show()
     else
@@ -51,7 +44,7 @@ document.addEventListener 'turbolinks:load', ->
       all_good = false
 
     if message.length == 0
-      $('#from-message').css 'border', '2px solid #c40022'
+      $('#from-message').css 'border', '1px solid #c40022'
       $('#from-message-error').show()
       all_good = false
     else
@@ -61,7 +54,7 @@ document.addEventListener 'turbolinks:load', ->
       # the user hasn't checked the "Don't Send a Sample" box
       if upload_data == undefined
         all_good = false
-        $('#upload_file').css 'border-bottom', '2px solid #c40022'
+        $('#upload_file').css 'border', '1px solid #c40022'
         $('#upload-file-error').show()
       else
         $('#upload-file-error').hide()
@@ -70,7 +63,7 @@ document.addEventListener 'turbolinks:load', ->
 
     if due_date.length == 0
       all_good = false
-      $('#due-date').css 'border-bottom', '2px solid #c40022'
+      $('#due-date').css 'border', '1px solid #c40022'
       $('#due-date-error').show()
     else
       $('#due-date-error').hide()
@@ -78,47 +71,47 @@ document.addEventListener 'turbolinks:load', ->
     return all_good  # will only be false if one of the check fails
 
   $('input').on 'keyup', (e) ->
-    $(this).css 'border-bottom', '2px solid #37A8E0'
+    $(this).css 'border-bottom', '1px solid #37A8E0'
     $(this).next().hide()
     if $(this).attr("id") == 'from-email'
       # case: user is typing into the email field
       # we want to check the length of the email field
-      # and check if has anything in it. If it does, we 
+      # and check if has anything in it. If it does, we
       # can remove the errors from the phone field
       if $("#from-email").val().length != 0
-        $("#from-number").css 'border-bottom', '2px solid #37A8E0'
+        $("#from-number").css 'border', '1px solid #37A8E0'
         $('#from-number-error').hide()
     else if $(this).attr("id") == 'from-number'
       # case: we do the reverse of above; now we are on
       # the phone field
       if $("#from-number").val().length != 0
-        $("#from-email").css 'border-bottom', '2px solid #37A8E0'
+        $("#from-email").css 'border', '1px solid #37A8E0'
         $('#from-email-error').hide()
     return
 
   $('textarea').on 'keyup', (e) ->
-    $(this).css 'border', '2px solid #37A8E0'
+    $(this).css 'border', '1px solid #37A8E0'
     $(this).next().hide()
     return
 
   $('input').on 'blur', (e) ->
     # unhighlight input field
-    $(this).css 'border-bottom', '2px solid #B2B2B2'
+    $(this).css 'border', '1px solid #B2B2B2'
     return
 
   $('input').on 'focus', (e) ->
     # highlight input field
-    $(this).css 'border-bottom', '2px solid #37A8E0'
+    $(this).css 'border', '1px solid #37A8E0'
     return
 
   $('textarea').on 'blur', (e) ->
     # unhighlight input field
-    $(this).css 'border', '2px solid #B2B2B2'
+    $(this).css 'border', '1px solid #B2B2B2'
     return
 
   $('textarea').on 'focus', (e) ->
     # highlight input field
-    $(this).css 'border', '2px solid #37A8E0'
+    $(this).css 'border', '1px solid #37A8E0'
     return
 
   $.each jQuery('textarea[data-autoresize]'), ->

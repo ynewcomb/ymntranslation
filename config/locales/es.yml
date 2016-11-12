@@ -1,5 +1,8 @@
 es:
-  about_section: 
+  header:
+    secondary_logo_path: 'spanish_english_arrow_en.png'
+
+  about_section:
     headline: 'Acerca de YMN Translation Services'
     paragraph_one: 'Yolanda Morales Newcomb nace y crece en Puerto Rico. Es completamente bilingüe en español e inglés. Obtuvo un Bachillerato en Matemáticas y Educación de la Universidad de Puerto Rico y una Maestría en Empresas de la Universidad de Wisconsin-Madison.'
     paragraph_two: 'En respuesta a la necesidad de traducciones de alta calidad debido a la creciente población de habla hispana en Texas y el resto del país, ella funda YMN Translation Services hace más de veintidós años. Como traductora independiente ofrece sus servicios de traducción e interpretación a una amplia gama de negocios y organizaciones sin fines de lucro.'
@@ -13,6 +16,9 @@ es:
     two: 'Miembro de American Translators Association'
     three: 'Su lengua materna es el español'
 
+  translation_types:
+    header: 'Types of Translations'
+
   form:
     title: 'Solicitud de traducción'
 
@@ -24,6 +30,7 @@ es:
     number_placeholder: 'Teléfono'
 
     length_label: 'Número de páginas/palabras de la traducción'
+    length_250: '250 palabras'
     length_500: '500 palabras'
     length_750: '750 palabras'
     length_1000: '1000 palabras'

@@ -1,0 +1,28 @@
+<section class="content animated fadeIn delayed_animation" id="translation-types">
+	<div class="container">
+		<h2 class="purple_header"><%= t('translation_types.header') %></h2>
+		<div class="row">
+			<div class="col-md-3">
+				<%= render partial: "type_box", locals: {type: t('form.type_business'), photo_id: "business"} %>
+			</div>
+			<div class="col-md-3">
+				<%= render partial: "type_box", locals: {type: t('form.type_marketing'), photo_id: "marketing"} %>
+			</div>
+			<div class="col-md-3">
+				<%= render partial: "type_box", locals: {type: t('form.type_education'), photo_id: "education"} %>
+			</div>
+			<div class="col-md-3">
+				<%= render partial: "type_box", locals: {type: t('form.type_legal'), photo_id: "legal"} %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3 col-md-offset-3">
+				<%= render partial: "type_box", locals: {type: t('form.type_medical'), photo_id: "medical"} %>
+			</div>
+			<div class="col-md-3">
+				<%= render partial: "type_box", locals: {type: t('form.type_religious'), photo_id: "religious"} %>
+			</div>
+		</div>
+	<div>
+</section>

@@ -6,7 +6,7 @@
   <div class="container">
     <div class="header_container animated fadeInUp">
       <%= image_tag("ymn_logo_long.png", alt: "YMN Translation Services Logo", class: "main_logo") %>
-      <h2 class="subtitle"><%= t('hero_section.subtitle') %></h2>
+      <%= image_tag(t('header.secondary_logo_path'), alt: "Spanish English Translation", class: "secondary_logo") %>
     </div>
   </div>
 </section>
@@ -16,6 +16,9 @@
 
 <!-- Key elements to highlight for potential customers -->
 <%= render partial: "highlights" %>
+
+<!-- Translation types offered -->
+<%= render partial: "offerings" %>
 
 <!-- Area where you can submit a translation request -->
 <%= render partial: "translation_request" %>

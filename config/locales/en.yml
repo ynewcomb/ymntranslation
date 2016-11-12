@@ -17,11 +17,14 @@
 # This would use the information in config/locales/es.yml.
 
 en:
-  about_section: 
+  header:
+    secondary_logo_path: "spanish_english_arrow_en.png"
+
+  about_section:
     headline: 'About YMN Translation Services'
     paragraph_one: 'Yolanda Morales Newcomb is a native Spanish speaker, born and raised in Puerto Rico. She holds a B.A. in Mathematics and Education from the University of Puerto Rico and earned a Master Degree in Business Management at the University of Wisconsin-Madison.'
     paragraph_two: 'In response to the need for top quality translations because of the growing Spanish speaking population in Texas and the rest of the country, she founded YMN Translation Services over twenty-two years ago. As a freelance translator, she has offered translation and interpreting services to a wide variety of businesses and non-profit organizations.'
-    paragraph_three: 'Her vast experience includes translation of a very diverse array of documents in multiple fields: business, marketing, education, legal, medical, and religious. Her work and customer service are defined by excellence and dependability.'
+    paragraph_three: 'Her vast experience includes translation of a very diverse array of documents in multiple fields. Her work and customer service are defined by excellence and dependability.'
 
   hero_section:
     subtitle: 'Spanish-English Translator Service'
@@ -29,7 +32,10 @@ en:
   highlights:
     one: '22+ Years of Experience'
     two: 'Member of American Translators Association'
-    three: 'Native Spanish Speaker' 
+    three: 'Native Spanish Speaker'
+
+  translation_types:
+    header: 'Types of Translations'
 
   form:
     title: 'Translation Request'
@@ -42,6 +48,7 @@ en:
     number_placeholder: 'Phone Number'
 
     length_label: 'Length of Translation'
+    length_250: '250 Words'
     length_500: '500 Words'
     length_750: '750 Words'
     length_1000: '1000 Words'
@@ -69,7 +76,7 @@ en:
     date_placeholder: 'Select a Date'
 
     message_label: 'Message'
-    message_placeholder: 'What would you like to tell us'
+    message_placeholder: 'What would you like to tell us?'
 
     add_file_text: 'Add File'
     contact_email: 'yolanda@ymntranslation.com'

@@ -1,0 +1,54 @@
+@import "variables";
+
+.form_group_dynamic {
+  margin-top: 10px;
+  position: relative;
+}
+.form_group_dynamic label  {
+  display: inline-block;
+  position: absolute;
+  font-size: 13px;
+  font-weight: normal;
+  -webkit-transform: translate3D(0, -8px, 0);
+  -ms-transform: translate3D(0, -8px, 0);
+  transform: translate3D(0, -8px, 0);
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+  color: $color-blue;
+  background-color: $color-white;
+  padding: 0 3px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  margin-left: 10px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 1;
+}
+.form_group_dynamic.no-focus label {
+  font-size: 14px;
+  -webkit-transform: translate3D(0, 9px, 0);
+  -ms-transform: translate3D(0, 9px, 0);
+  transform: translate3D(0, 9px, 0);
+  color: $border-color-input-form;
+  opacity: 0.6;
+}
+.form_group_dynamic.no-focus-with-text label {
+  color: $grey-text-color;
+}
+.form_group_dynamic input, .form_group_dynamic textarea {
+  width: 100%;
+  padding-left: 10px;
+  border-radius: 5px;
+  border: 1px solid $border-color-input-form;
+  font-size: 14px;
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form_group_dynamic input {
+  height: 40px
+}
+.form_group_dynamic input:focus, .form_group_dynamic textarea:focus {
+  border: 1px solid $color-blue;
+  box-shadow: none;
+  outline: none;
+}

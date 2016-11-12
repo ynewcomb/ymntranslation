@@ -1,28 +1,36 @@
 <section class="form animated fadeIn delayed_animation">
   <h2 class="form_header"><%= t('form.title') %></h2>
 
-  <p type="<%= t('form.name_label') %>">
-    <input type="text" placeholder="<%= t('form.name_placeholder') %>" id="from-name"/>
+  <div class="form_group_dynamic">
+    <label for="from-name"><%= t('form.name_label') %></label>
+    <input type="text" id="from-name"/>
     <span class="input_error_container" id="from-name-error"><%= t('form.error_blank') %></span>
-  </p>
+  </div>
 
   <p type="<%= t('form.email_and_number_label') %>">
     <div class="row">
       <div class="col-md-6">
-        <input type="email" placeholder="<%= t('form.email_placeholder') %>" id="from-email"/>
-        <span class="input_error_container" id="from-email-error"><%= t('form.error_blank') %></span>
+        <div class="form_group_dynamic">
+          <label for="from-email"><%= t('form.email_placeholder') %></label>
+          <input type="email" id="from-email"/>
+          <span class="input_error_container" id="from-email-error"><%= t('form.error_blank') %></span>
+        </div>
       </div>
 
-      <div class="col-md-6">
-        <input type="tel" placeholder="<%= t('form.number_placeholder') %>" id="from-number"/>
-        <span class="input_error_container" id="from-number-error"><%= t('form.error_blank') %></span>
+      <div class="col-md-6 margin_above_mobile">
+        <div class="form_group_dynamic">
+          <label for="from-email"><%= t('form.number_placeholder') %></label>
+          <input type="tel" id="from-number"/>
+          <span class="input_error_container" id="from-number-error"><%= t('form.error_blank') %></span>
+        </div>
       </div>
     </div>
   </p>
 
-  <p type="<%= t('form.length_label') %>">
+  <p type="<%= t('form.length_label') %>" class="dropdown_label">
     <select type="text" class="fastselect" name="fastselect-len" id="fastselect-len" >
-      <option selected value="<%= t('form.length_500') %>"><%= t('form.length_500') %></option>
+      <option selected value="<%= t('form.length_250') %>"><%= t('form.length_250') %></option>
+      <option value="<%= t('form.length_500') %>"><%= t('form.length_500') %></option>
       <option value="<%= t('form.length_750') %>"><%= t('form.length_750') %></option>
       <option value="<%= t('form.length_1000') %>"><%= t('form.length_1000') %></option>
       <option value="<%= t('form.length_1500') %>"><%= t('form.length_1500') %></option>
@@ -37,7 +45,7 @@
     </select>
   </p>
 
-  <p type="<%= t('form.type_label') %>">
+  <p type="<%= t('form.type_label') %>" class="dropdown_label">
     <select type="text" class="fastselect" name="fastselect-type" id="fastselect-type" >
       <option value="<%= t('form.type_business') %>" selected><%= t('form.type_business') %></option>
       <option value="<%= t('form.type_marketing') %>"><%= t('form.type_marketing') %></option>
@@ -79,14 +87,19 @@
   </div>
 
   <p type="<%= t('form.date_label') %>">
-    <input type="text" id="due-date" placeholder="<%= t('form.date_placeholder') %>"/>
-    <div class="monthly" id="calendar"></div>
+    <div class="form_group_dynamic">
+      <input type="date" id="due-date" placeholder="mm/dd/yyyy"/>
+      <span class="input_error_container" id="due-date-error"><%= t('form.error_blank') %></span>
+    </div>
   </p>
 
-  <p type="<%= t('form.message_label') %>">
-    <textarea rows='2' data-autoresize placeholder='<%= t('form.message_placeholder') %>' id="from-message"></textarea>
+  <hr/>
+
+  <div class="form_group_dynamic">
+    <label for="from-message"><%= t('form.message_placeholder') %></label>
+    <textarea rows='2' data-autoresize id="from-message"></textarea>
     <span class="input_error_container" id="from-message-error"><%= t('form.error_blank') %></span>
-  </p>
+  </div>
 
   <div id="send" class="btn_cool"><%= t('form.send') %></div>
 
