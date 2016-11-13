@@ -127,7 +127,7 @@ p, .faded_text, .subtitle, .email_box {
 	top: 10px;
 	right: 10px;
 	height: 50px;
-    width: 50px;
+  width: 50px;
 	padding: 13px;
 	cursor: pointer;
 	z-index: 10000;
@@ -151,9 +151,19 @@ p, .faded_text, .subtitle, .email_box {
 	margin: auto;
 	width: 50%;
 	background-color: $header-color-background;
-	padding: 30px;
-	margin-top: 100px;
+	margin-top: 80px;
 	border-radius: 5px;
+}
+
+.header_container_images {
+  padding: 30px 30px 10px 30px;
+}
+
+.header_container_bottom {
+  border-top: 1px solid $color-grey-very-opaque;
+  text-align: center;
+  padding: 10px;
+  opacity: 0.8;
 }
 
 .delayed_animation {

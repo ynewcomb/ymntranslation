@@ -1,12 +1,12 @@
 es:
   header:
-    secondary_logo_path: 'spanish_english_arrow_en.png'
+    secondary_logo_path: 'spanish_english_arrow_es.png'
 
   about_section:
     headline: 'Acerca de YMN Translation Services'
-    paragraph_one: 'Yolanda Morales Newcomb nace y crece en Puerto Rico. Es completamente bilingüe en español e inglés. Obtuvo un Bachillerato en Matemáticas y Educación de la Universidad de Puerto Rico y una Maestría en Empresas de la Universidad de Wisconsin-Madison.'
-    paragraph_two: 'En respuesta a la necesidad de traducciones de alta calidad debido a la creciente población de habla hispana en Texas y el resto del país, ella funda YMN Translation Services hace más de veintidós años. Como traductora independiente ofrece sus servicios de traducción e interpretación a una amplia gama de negocios y organizaciones sin fines de lucro.'
-    paragraph_three: 'Su vasta experiencia comprende la traducción de una gran variedad de documentos en varios campos, tales como: negocios, mercadotecnia, educación, legal, médico y religioso. Su trabajo y servicio al cliente se definen por la excelencia, la confiabilidad y la puntualidad.'
+    paragraph_one: 'En respuesta a la necesidad de traducciones de alta calidad debido a la creciente población de habla hispana en el país, se funda YMN Translation Services hace más de veintidós años.'
+    paragraph_two: 'Yolanda Morales Newcomb nace y crece en Puerto Rico. Es completamente bilingüe en español e inglés. Obtuvo un Bachillerato en Matemáticas y Educación de la Universidad de Puerto Rico y una Maestría en Empresas de la Universidad de Wisconsin-Madison.'
+    paragraph_three: 'Como traductora independiente ofrece sus servicios de traducción e interpretación a una amplia gama de negocios y organizaciones sin fines de lucro. Su vasta experiencia comprende la traducción de una gran variedad de documentos en múltiples campos. Su trabajo y servicio al cliente se definen por la excelencia, la confiabilidad y la puntualidad.'
 
   hero_section:
     subtitle: 'Servicio de traducción de español a inglés, de inglés a español. '
@@ -17,7 +17,7 @@ es:
     three: 'Su lengua materna es el español'
 
   translation_types:
-    header: 'Types of Translations'
+    header: 'Tipos de traducción'
 
   form:
     title: 'Solicitud de traducción'
