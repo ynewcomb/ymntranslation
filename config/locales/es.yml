@@ -49,7 +49,7 @@ es:
     type_marketing: 'Mercadotecnia'
     type_education: 'Educación'
     type_legal: 'Legal'
-    type_medical: 'Médico'
+    type_medical: 'Médica'
     type_religious: 'Religiosa'
     type_other: 'Otra'
 
